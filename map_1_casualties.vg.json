@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "title": "Number of Casualties (Accidents) in UK (December 2010)",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/uk_map_topjson.json",
+        "format": {
+          "type": "topojson",
+          "feature": "uk_map_topjson"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgrey",
+        "stroke": "white"
+      }
+    },
+    {
+      "data": {
+        "url": "data/cleaned_accident_dec_2010.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "tooltip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "Number_of_Casualties",
+          "type": "quantitative"
+        },
+        "color": {
+          "title": "Number of Casualties",
+          "field": "Number_of_Casualties",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "reds",
+            "type": "log"
+          }
+        },
+        "opacity":{"value": 0.5}
+      }
+    }
+  ]
+}

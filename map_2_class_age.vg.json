@@ -1,0 +1,38 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 450,
+    "height": 600,
+    "title": "Number of Casualties Based on Casualty Class and Age Categories (Dec 2010)",
+    "data": {
+        "url": "data/cleaned_class_age_dec_2010.csv"
+    },
+    "mark": {
+        "type": "bar",
+        "tooltip": true
+    },
+    "encoding": {
+        "x": {
+            "title": "Class of Casualty",
+            "axis": {
+                "labelAngle": 0
+            },
+            "field": "Casualty_Class"
+        },
+        "y": {
+            "title": "Total casualties",
+            "aggregate": "count",
+            "field": "Age_Band_of_Casualty"
+        },
+        "color": {
+            "legend": {
+                "title": "Age Categories"
+            },
+            "field": "Age_Band_of_Casualty",
+            "sort": "ascending",
+            "scale": {
+                "scheme": "paired"
+            }
+        },
+        "opacity":{"value": 0.8}
+    }
+}

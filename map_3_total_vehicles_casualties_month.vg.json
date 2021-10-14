@@ -1,0 +1,87 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 500,
+    "title": "Number of Casualties and Total Vehicles Involved per Month (Dec 2010)",
+    "data": {
+        "url": "data/cleaned_bubble_plot.csv"
+    },
+    "transform": [
+        {
+            "filter": "Month_Selection == null || datum.Month == Month_Selection"
+        }
+    ],
+    "mark": {
+        "type": "square",
+        "tooltip": true
+    },
+    "params": [
+        {
+            "name": "Month_Selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "labels": [
+                    "Show All",
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ],
+                "name": "Month Selection: "
+            }
+        }
+    ],
+    "encoding": {
+        "y": {
+            "title": "Total Vehicles Involved",
+            "field": "Number_of_Vehicles",
+            "type": "quantitative",
+            "scale": {
+                "zero": false
+            }
+        },
+        "x": {
+            "field": "Month",
+            "axis": {
+                "labelAngle": -30
+            },
+            "type": "ordinal"
+        },
+        "size": {
+            "title": "Number of Casualties",
+            "field": "Number_of_Casualties",
+            "type": "quantitative"
+        },
+        "color": {
+            "scale": {
+                "scheme": "tableau10"
+            }
+        },
+        "opacity": {
+            "value": 0.6
+        }
+    }
+}
