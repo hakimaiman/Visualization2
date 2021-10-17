@@ -2,7 +2,6 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 450,
     "height": 600,
-    "title": "Number of Casualties Based on Casualty Class and Age Categories (Dec 2010)",
     "data": {
         "url": "data/cleaned_class_age_dec_2010.csv"
     },
